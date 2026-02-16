@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mieterprofil Hamburg — Michaela & Daniel Ferencz</title>
+    <meta name="description" content="Professionelles Paar sucht langfristige Wohnung in Hamburg. Ausgezeichnete Bonität, perfekte Mieterhistorie und unbefristete Arbeitsverträge.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #F5EDE8;
+            --bg-secondary: #EFE5DD;
+            --accent-taupe: #B6A396;
+            --text-primary: #232323;
+            --text-muted: #6F6A66;
+            --border: rgba(35, 35, 35, 0.12);
+            --white: #FFFFFF;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-24: 24px;
+            --space-32: 32px;
+            --space-48: 48px;
+            --space-64: 64px;
+            --space-80: 80px;
+            --space-100: 100px;
+            --radius: 14px;
+            --radius-sm: 8px;
+            --max-width: 1120px;
+            --shadow-soft: 0 4px 16px rgba(35, 35, 35, 0.06);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        h1 {
+            font-size: 4rem;
+            line-height: 0.95;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: var(--space-24);
+            font-weight: 700;
+            color: #1A1715;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            line-height: 1.1;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: var(--space-24);
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            margin-bottom: var(--space-16);
+        }
+        
+        p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin-bottom: var(--space-16);
+        }
+        
+        .eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: #9B8A7D;
+            margin-bottom: var(--space-24);
+            opacity: 0.85;
+        }
+        
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-32);
+        }
+        
+        /* NAVIGATION */
+        .navbar {
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border);
+            padding: var(--space-24) 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-32);
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            align-items: center;
+            gap: var(--space-32);
+        }
+        
+        .nav-brand {
+            font-family: var(--font-heading);
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            line-height: 1.2;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--space-32);
+            justify-content: center;
+        }
+        
+        .nav-menu a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--accent-taupe);
+        }
+        
+        .nav-cta {
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        .btn-nav {
+            background: var(--accent-taupe);
+            color: white;
+            padding: 0.625rem 1.5rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-nav:hover {
+            background: #9F8D81;
+            transform: translateY(-1px);
+        }
+        
+        .hamburger {
+            display: none;
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            min-height: auto;
+            display: flex;
+            align-items: center;
+            padding: var(--space-80) 0 var(--space-64) 0;
+            background: var(--bg-primary);
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-64);
+            align-items: center;
+        }
+        
+        .hero-content h1 {
+            margin-bottom: var(--space-32);
+        }
+        
+        .hero-intro {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+            margin-bottom: var(--space-24);
+            max-width: 50ch;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: var(--space-24);
+            align-items: center;
+            padding-bottom: var(--space-24);
+        }
+        
+        .btn-primary {
+            background: var(--accent-taupe);
+            color: white;
+            padding: 0.875rem 1.75rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 0.9375rem;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-taupe);
+        }
+        
+        .btn-primary:hover {
+            background: #9F8D81;
+            border-color: #9F8D81;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(182, 163, 150, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            padding: 0.875rem 1.75rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 0.9375rem;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 2px solid var(--border);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--accent-taupe);
+            color: var(--accent-taupe);
+        }
+        
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            max-width: 480px;
+            height: 600px;
+            object-fit: cover;
+            object-position: center 30%;
+            border-radius: var(--radius);
+            box-shadow: 0 12px 40px rgba(35, 35, 35, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+        
+        /* HIGHLIGHTS BAR */
+        .highlights {
+            background: var(--accent-taupe);
+            padding: var(--space-48) 0;
+        }
+        
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: var(--space-48);
+        }
+        
+        .highlight-item {
+            text-align: center;
+            color: white;
+        }
+        
+        .highlight-clickable {
+            cursor: pointer;
+        }
+        
+        .highlight-link {
+            color: white;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        .highlight-link:hover {
+            transform: scale(1.05);
+            opacity: 0.95;
+        }
+        
+        .highlight-link:hover .highlight-number {
+            transform: scale(1.1);
+        }
+        
+        .highlight-number {
+            font-family: var(--font-heading);
+            font-size: 2.75rem;
+            font-weight: 600;
+            line-height: 1;
+            margin-bottom: var(--space-12);
+            letter-spacing: 0.02em;
+            transition: transform 0.3s ease;
+        }
+        
+        .highlight-label {
+            font-size: 0.875rem;
+            opacity: 0.9;
+            letter-spacing: 0.02em;
+            line-height: 1.4;
+        }
+        
+        .schufa-links {
+            display: flex;
+            gap: var(--space-12);
+            justify-content: center;
+            margin-top: var(--space-12);
+            flex-wrap: wrap;
+        }
+        
+        .schufa-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.75rem;
+            padding: 5px 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .schufa-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        /* STORY SECTION */
+        .story-section {
+            padding: var(--space-80) 0;
+            background: var(--bg-secondary);
+        }
+        
+        .story-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .story-header {
+            text-align: center;
+            margin-bottom: var(--space-64);
+        }
+        
+        .story-text {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-48);
+        }
+        
+        .story-block {
+            position: relative;
+            padding-left: var(--space-48);
+        }
+        
+        .story-block::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--accent-taupe), transparent);
+        }
+        
+        .story-block p {
+            font-size: 1.125rem;
+            line-height: 1.9;
+            color: var(--text-primary);
+            margin: 0;
+        }
+        
+        .story-highlight {
+            background: var(--bg-primary);
+            padding: var(--space-32);
+            border-radius: var(--radius);
+            border-left: 4px solid var(--accent-taupe);
+        }
+        
+        .story-highlight p {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+            margin: 0;
+            font-style: italic;
+        }
+        
+        .decorative-quote {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            line-height: 1.4;
+            color: var(--accent-taupe);
+            text-align: center;
+            margin: var(--space-64) 0;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .decorative-quote::before {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -40px;
+            opacity: 0.3;
+        }
+        
+        /* DETAILS SECTION */
+        .details {
+            padding: var(--space-80) 0;
+            background: var(--bg-primary);
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto var(--space-64);
+        }
+        
+        .section-intro {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            margin: 0;
+            color: var(--text-muted);
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-32);
+        }
+        
+        .detail-card:nth-child(7):last-child {
+            grid-column: 2 / 3;
+        }
+        
+        .detail-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            padding: var(--space-48);
+            border-radius: var(--radius);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .detail-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-soft);
+            border-color: var(--accent-taupe);
+        }
+        
+        .detail-icon {
+            font-size: 3rem;
+            margin-bottom: var(--space-24);
+            line-height: 1;
+        }
+        
+        .detail-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: var(--space-16);
+            color: var(--accent-taupe);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .detail-card p {
+            margin: 0;
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+        }
+        
+        /* CTA SECTION */
+        .cta {
+            padding: var(--space-80) 0;
+            background: var(--bg-secondary);
+            text-align: center;
+        }
+        
+        .cta h2 {
+            margin-bottom: var(--space-24);
+        }
+        
+        .cta p {
+            font-size: 1.25rem;
+            max-width: 60ch;
+            margin: 0 auto var(--space-48);
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--bg-primary);
+            padding: var(--space-80) 0 var(--space-32);
+            border-top: 1px solid var(--border);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-64);
+            margin-bottom: var(--space-64);
+        }
+        
+        .footer-section h4 {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--space-24);
+            letter-spacing: 0.02em;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section li {
+            margin-bottom: var(--space-12);
+        }
+        
+        .footer-section a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--accent-taupe);
+        }
+        
+        .footer-section p {
+            font-size: 0.9375rem;
+            margin-bottom: var(--space-12);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--space-48);
+            border-top: 1px solid var(--border);
+        }
+        
+        .footer-bottom p {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-48);
+            }
+            
+            .hero-image {
+                max-width: 550px;
+                margin: 0 auto;
+            }
+            
+            .hero-image img {
+                max-width: 100%;
+                height: 550px;
+            }
+            
+            h1 {
+                font-size: 3.25rem;
+            }
+            
+            .highlights-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: var(--space-32);
+            }
+            
+            .details-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .detail-card:nth-child(7):last-child {
+                grid-column: auto;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                grid-template-columns: 1fr auto;
+            }
+            
+            .nav-brand {
+                font-size: 0.9375rem;
+                letter-spacing: 0.03em;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .nav-cta {
+                display: none;
+            }
+            
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                cursor: pointer;
+            }
+            
+            .hamburger span {
+                width: 24px;
+                height: 2px;
+                background: var(--text-primary);
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+                letter-spacing: 0.1em;
+            }
+            
+            .hero {
+                padding: var(--space-32) 0 var(--space-32) 0;
+            }
+            
+            .hero-image {
+                max-width: 100%;
+            }
+            
+            .hero-image img {
+                height: 450px;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: stretch;
+                padding-bottom: var(--space-32);
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                text-align: center;
+            }
+            
+            .highlights-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-24);
+            }
+            
+            .highlight-number {
+                font-size: 2.5rem;
+            }
+            
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .story-block {
+                padding-left: var(--space-32);
+            }
+            
+            .story-block p {
+                font-size: 1rem;
+            }
+            
+            .decorative-quote {
+                font-size: 1.25rem;
+                margin: var(--space-48) 0;
+            }
+            
+            .decorative-quote::before {
+                font-size: 3rem;
+                top: -30px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-brand {
+                font-size: 0.875rem;
+                letter-spacing: 0.02em;
+            }
+            
+            h1 {
+                font-size: 1.875rem;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+            }
+            
+            .hero-intro {
+                font-size: 1rem;
+            }
+            
+            .hero-image img {
+                height: 400px;
+            }
+            
+            .highlight-number {
+                font-size: 2rem;
+            }
+            
+            .highlight-label {
+                font-size: 0.8125rem;
+            }
+            
+            .highlights-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .story-highlight {
+                padding: var(--space-24);
+            }
+            
+            .schufa-links {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Michaela & Daniel Ferencz</a>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Über Uns</a></li>
+                <li><a href="financial.html">Finanzen</a></li>
+                <li><a href="rental-history.html">Mieterhistorie</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+            </ul>
+            
+            <div class="nav-cta">
+                <a href="contact.html#message" class="btn-nav">Nachricht Senden</a>
+            </div>
+            
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <p class="eyebrow">Auf Der Suche Nach Unserem Neuen Zuhause</p>
+                    <h1>Michaela & Daniel Ferencz</h1>
+                    <p class="hero-intro">Wir sind ein ruhiges, zuverlässiges Ehepaar und möchten nach Hamburg ziehen, idealerweise nach Schnelsen oder in die nähere Umgebung. Der Wunsch nach dem Umzug entsteht vor allem, weil unsere Kinder in Hamburg leben und wir gerne näher bei ihnen sein möchten.</p>
+                    <p class="hero-intro">In unserer Freizeit gehen wir gerne spazieren oder ins Theater und genießen eine ruhige, angenehme Nachbarschaft. Ein respektvolles Miteinander und ein gepflegtes Zuhause sind uns sehr wichtig. Wir sind ordentliche und verantwortungsbewusste Mieter und legen Wert auf ein langfristiges Mietverhältnis.</p>
+                    <p class="hero-intro">Aus früheren Mietverhältnissen können wir positive Referenzen vorweisen, die wir bei Bedarf gerne zur Verfügung stellen. Wir freuen uns sehr darauf, in Hamburg ein neues Zuhause zu finden.</p>
+                    <div class="hero-cta" style="justify-content: flex-start;">
+                        <a href="contact.html" class="btn-primary">Kontakt Aufnehmen</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="images/main.jpg" alt="Michaela & Daniel Ferencz" onerror="this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section class="highlights">
+        <div class="container">
+            <div class="highlights-grid">
+                <div class="highlight-item">
+                    <div class="highlight-number">€6.000+</div>
+                    <div class="highlight-label">Netto-Monatseinkommen</div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-number">100%</div>
+                    <div class="highlight-label">Pünktliche Mietzahlung</div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-number">⭐</div>
+                    <div class="highlight-label">Exzellente SCHUFA</div>
+                    <div class="schufa-links">
+                        <a href="docs/SCHUFA_MICHAELA.pdf" target="_blank" class="schufa-link">
+                            📄 Michaela
+                        </a>
+                        <a href="docs/SCHUFA_DANIEL.pdf" target="_blank" class="schufa-link">
+                            📄 Daniel
+                        </a>
+                    </div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-number">0</div>
+                    <div class="highlight-label">Beschwerden</div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-number">∞</div>
+                    <div class="highlight-label">Langfristige Bindung</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNSERE GESCHICHTE -->
+    <section class="story-section">
+        <div class="container">
+            <div class="story-content">
+                <div class="story-header">
+                    <p class="eyebrow">Familie & Leben</p>
+                    <h2>Unsere Geschichte</h2>
+                </div>
+                
+                <div class="story-text">
+                    <div class="story-block">
+                        <p>Wir sind beide 55 und 57 Jahre alt und fest im Berufsleben etabliert – mit unbefristeten Arbeitsverträgen in stabilen Unternehmen und exzellenten finanziellen Voraussetzungen. Nach über 20 Jahren in derselben Wohnung in Mülheim an der Ruhr freuen wir uns auf diesen neuen Lebensabschnitt.</p>
+                    </div>
+                    
+                    <div class="decorative-quote">
+                        Familie ist nicht nur wichtig, sie ist alles.
+                    </div>
+                    
+                    <div class="story-block">
+                        <p>Der Umzug nach Hamburg ermöglicht es uns, unsere Kinder und deren junge Familie im Alltag zu unterstützen und wertvolle Zeit mit unseren Enkelkindern zu verbringen. Familie bedeutet uns alles, und dieser Schritt bringt uns näher zusammen.</p>
+                    </div>
+                    
+                    <div class="story-highlight">
+                        <p>Wir suchen ein langfristiges Zuhause in Hamburg – einer Stadt voller Leben, Kultur und vor allem: unserer Familie.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WICHTIGE DETAILS -->
+    <section class="details">
+        <div class="container">
+            <div class="section-header">
+                <p class="eyebrow">Auf Einen Blick</p>
+                <h2>Wichtige Details</h2>
+                <p class="section-intro">Alles, was Sie über uns als Ihre zukünftigen Mieter wissen müssen.</p>
+            </div>
+            
+            <div class="details-grid">
+                <div class="detail-card">
+                    <div class="detail-icon">💼</div>
+                    <h3>Beruf</h3>
+                    <p>Unbefristete Arbeitsverträge bei stabilen Unternehmen.</p>
+                </div>
+                
+                <div class="detail-card">
+                    <div class="detail-icon">💰</div>
+                    <h3>Einkommen</h3>
+                    <p>€6.000+ netto monatlich.</p>
+                </div>
+                
+                <div class="detail-card">
+                    <div class="detail-icon">📅</div>
+                    <h3>Einzug</h3>
+                    <p>Ab April oder Mai 2026 oder später. Flexible Termine, um uns nach Ihrem Zeitplan zu richten.</p>
+                </div>
+                
+                <div class="detail-card">
+                    <div class="detail-icon">📍</div>
+                    <h3>Lage</h3>
+                    <p>Schnelsen und umliegende Stadtteile. Bevorzugt ruhige, attraktive Wohnlagen in Hamburg.</p>
+                </div>
+                
+                <div class="detail-card">
+                    <div class="detail-icon">📐</div>
+                    <h3>Größe</h3>
+                    <p>70–100 m², 3-4 Zimmer mit Balkon. Gepflegte Wohnung in gutem Zustand.</p>
+                </div>
+                
+                <div class="detail-card">
+                    <div class="detail-icon">⏰</div>
+                    <h3>Dauer</h3>
+                    <p>Langfristige Vermietung. Wir suchen ein Zuhause, keine Übergangslösung.</p>
+                </div>
+                
+                <div class="detail-card">
+                    <div class="detail-icon">💶</div>
+                    <h3>Budget</h3>
+                    <p>Bis €1.800 Warmmiete. Finanzielle Flexibilität für die richtige Wohnung.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>Möchten Sie Mehr Erfahren?</h2>
+            <p>Wir würden uns freuen, von Ihnen zu hören und weitere Details über Ihre Immobilie zu besprechen.</p>
+            <div class="hero-cta" style="justify-content: center;">
+                <a href="financial.html" class="btn-primary">Finanzielle Details</a>
+                <a href="contact.html" class="btn-secondary">Kontakt Aufnehmen</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Schnelllinks</h4>
+                    <ul>
+                        <li><a href="index.html">Über Uns</a></li>
+                        <li><a href="financial.html">Finanzen</a></li>
+                        <li><a href="rental-history.html">Mieterhistorie</a></li>
+                        <li><a href="contact.html">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <p>E-Mail: michaeladanielferencz@gmail.com</p>
+                    <p>Telefon: +49 15775830547</p>
+                    <p>WhatsApp: +49 15775830547</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Wir Suchen</h4>
+                    <p>70–100 m², 3-4 Zimmer mit Balkon</p>
+                    <p>Schnelsen und Umgebung</p>
+                    <p>Einzug: Ab April oder Mai 2026</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2026 Michaela & Daniel Ferencz · Alle Datenverarbeitungen entsprechen der DSGVO</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+            });
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+

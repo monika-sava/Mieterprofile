@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt — Michaela & Daniel Ferencz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #F5EDE8;
+            --bg-secondary: #EFE5DD;
+            --accent-taupe: #B6A396;
+            --text-primary: #232323;
+            --text-muted: #6F6A66;
+            --border: rgba(35, 35, 35, 0.12);
+            --white: #FFFFFF;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-24: 24px;
+            --space-32: 32px;
+            --space-48: 48px;
+            --space-64: 64px;
+            --space-80: 80px;
+            --radius: 14px;
+            --radius-sm: 8px;
+            --max-width: 1120px;
+            --shadow-soft: 0 4px 16px rgba(35, 35, 35, 0.06);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        h1 {
+            font-size: 3.25rem;
+            line-height: 1.05;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: var(--space-24);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            line-height: 1.15;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: var(--space-24);
+        }
+        
+        h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            margin-bottom: var(--space-16);
+        }
+        
+        p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin-bottom: var(--space-16);
+        }
+        
+        .eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: #9B8A7D;
+            margin-bottom: var(--space-24);
+            opacity: 0.85;
+        }
+        
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-32);
+        }
+        
+        /* NAVIGATION */
+        .navbar {
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border);
+            padding: var(--space-24) 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-32);
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            align-items: center;
+            gap: var(--space-32);
+        }
+        
+        .nav-brand {
+            font-family: var(--font-heading);
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            line-height: 1.2;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--space-32);
+            justify-content: center;
+        }
+        
+        .nav-menu a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--accent-taupe);
+        }
+        
+        .nav-cta {
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        .btn-nav {
+            background: var(--accent-taupe);
+            color: white;
+            padding: 0.625rem 1.5rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-nav:hover {
+            background: #9F8D81;
+            transform: translateY(-1px);
+        }
+        
+        .hamburger {
+            display: none;
+        }
+        
+        /* PAGE HEADER */
+        .page-header {
+            padding: var(--space-80) 0 var(--space-64);
+            text-align: center;
+            background: var(--bg-primary);
+        }
+        
+        .page-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 60ch;
+            margin: 0 auto;
+        }
+        
+        /* CONTACT SECTION */
+        .contact-section {
+            padding: var(--space-80) 0;
+            background: var(--bg-secondary);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-64);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        /* CONTACT INFO */
+        .contact-info h2 {
+            margin-bottom: var(--space-32);
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-24);
+        }
+        
+        .contact-method {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: var(--space-32);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            gap: var(--space-24);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-method:hover {
+            border-color: var(--accent-taupe);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            line-height: 1;
+            min-width: 48px;
+        }
+        
+        .contact-details h3 {
+            font-size: 1rem;
+            margin-bottom: var(--space-12);
+            color: var(--accent-taupe);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .contact-details p {
+            margin: 0;
+            font-size: 0.9375rem;
+        }
+        
+        .contact-details a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .contact-details a:hover {
+            color: var(--accent-taupe);
+        }
+        
+        .contact-note {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-top: var(--space-12);
+        }
+        
+        /* CONTACT FORM */
+        .contact-form {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: var(--space-48);
+            border-radius: var(--radius);
+        }
+        
+        .contact-form h2 {
+            margin-bottom: var(--space-32);
+        }
+        
+        .form-group {
+            margin-bottom: var(--space-24);
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            font-size: 0.9375rem;
+            margin-bottom: var(--space-12);
+            color: var(--text-primary);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: var(--space-16);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            background: var(--bg-primary);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-taupe);
+            box-shadow: 0 0 0 3px rgba(182, 163, 150, 0.1);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+        
+        .form-group select {
+            cursor: pointer;
+        }
+        
+        .btn-submit {
+            background: var(--accent-taupe);
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 0.9375rem;
+            letter-spacing: 0.02em;
+            border: 2px solid var(--accent-taupe);
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-submit:hover {
+            background: #9F8D81;
+            border-color: #9F8D81;
+            transform: translateY(-2px);
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--bg-primary);
+            padding: var(--space-80) 0 var(--space-32);
+            border-top: 1px solid var(--border);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-64);
+            margin-bottom: var(--space-64);
+        }
+        
+        .footer-section h4 {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--space-24);
+            letter-spacing: 0.02em;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section li {
+            margin-bottom: var(--space-12);
+        }
+        
+        .footer-section a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--accent-taupe);
+        }
+        
+        .footer-section p {
+            font-size: 0.9375rem;
+            margin-bottom: var(--space-12);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--space-48);
+            border-top: 1px solid var(--border);
+        }
+        
+        .footer-bottom p {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-48);
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                grid-template-columns: 1fr auto;
+            }
+            
+            .nav-brand {
+                font-size: 0.9375rem;
+                letter-spacing: 0.03em;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .nav-cta {
+                display: none;
+            }
+            
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                cursor: pointer;
+            }
+            
+            .hamburger span {
+                width: 24px;
+                height: 2px;
+                background: var(--text-primary);
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-method {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .contact-form {
+                padding: var(--space-32);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Michaela & Daniel Ferencz</a>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html">Über Uns</a></li>
+                <li><a href="financial.html">Finanzen</a></li>
+                <li><a href="rental-history.html">Mieterhistorie</a></li>
+                <li><a href="contact.html" class="active">Kontakt</a></li>
+            </ul>
+            
+            <div class="nav-cta">
+                <a href="contact.html#message" class="btn-nav">Nachricht Senden</a>
+            </div>
+            
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <div class="container">
+            <p class="eyebrow">Nehmen Sie Kontakt Auf</p>
+            <h1>Kontakt</h1>
+            <p class="page-subtitle">Wir freuen uns von Ihrer Immobilie zu hören. Kontaktieren Sie uns und wir antworten innerhalb von 24 Stunden.</p>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section" id="message">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- CONTACT INFO -->
+                <div class="contact-info">
+                    <p class="eyebrow">Erreichbarkeit</p>
+                    <h2>Kontaktmöglichkeiten</h2>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-details">
+                                <h3>E-Mail</h3>
+                                <p><a href="mailto:your.email@example.com">michaeladanielferencz@gmail.com</a></p>
+                                <p class="contact-note">Antwort innerhalb von 24 Stunden</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-details">
+                                <h3>Telefon</h3>
+                                <p><a href="tel:+49XXXXXXXXX">+49 15775830547</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">💬</div>
+                            <div class="contact-details">
+                                <h3>WhatsApp</h3>
+                                <p><a href="https://wa.me/49XXXXXXXXX">+49 15775830547</a></p>
+                                <p class="contact-note">Schnelle Antworten, jederzeit</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CONTACT FORM -->
+                <div class="contact-form">
+                    <h2>Nachricht Senden</h2>
+                    <form action="https://formspree.io/f/xlgwgoob" method="POST">
+                        <div class="form-group">
+                            <label for="name">Ihr Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Vor- und Nachname">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-Mail-Adresse *</label>
+                            <input type="email" id="email" name="email" required placeholder="ihre.email@beispiel.de">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Telefonnummer (Optional)</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+49 XXX XXXXXXX">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Betreff *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Bitte wählen...</option>
+                                <option value="property-inquiry">Wohnungsanfrage</option>
+                                <option value="viewing-request">Besichtigungstermin</option>
+                                <option value="document-request">Dokumentenanfrage</option>
+                                <option value="general-question">Allgemeine Frage</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Nachricht *</label>
+                            <textarea id="message" name="message" required placeholder="Erzählen Sie uns über Ihre Immobilie oder stellen Sie uns Ihre Fragen..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-submit">Nachricht Senden</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Schnelllinks</h4>
+                    <ul>
+                        <li><a href="index.html">Über Uns</a></li>
+                        <li><a href="financial.html">Finanzen</a></li>
+                        <li><a href="rental-history.html">Mieterhistorie</a></li>
+                        <li><a href="contact.html">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <p>E-Mail: michaeladanielferencz@gmail.com</p>
+                    <p>Telefon: +49 15775830547</p>
+                    <p>WhatsApp: +49 15775830547</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Wir Suchen</h4>
+                    <p>70–100 m², 3-4 Zimmer</p>
+                    <p>Schnelsen und Umgebung</p>
+                    <p>Einzug: Ab Mai 2026</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2026 Michaela & Daniel Ferencz · Alle Datenverarbeitungen entsprechen der DSGVO</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+            });
+        }
+    </script>
+
+</body>
+</html>
+
+

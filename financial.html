@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finanzielle Informationen — Michaela & Daniel Ferencz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #F5EDE8;
+            --bg-secondary: #EFE5DD;
+            --accent-taupe: #B6A396;
+            --text-primary: #232323;
+            --text-muted: #6F6A66;
+            --border: rgba(35, 35, 35, 0.12);
+            --white: #FFFFFF;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-24: 24px;
+            --space-32: 32px;
+            --space-48: 48px;
+            --space-64: 64px;
+            --space-72: 72px;
+            --space-80: 80px;
+            --radius: 14px;
+            --radius-sm: 8px;
+            --max-width: 1120px;
+            --shadow-soft: 0 4px 16px rgba(35, 35, 35, 0.06);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        h1 {
+            font-size: 3.25rem;
+            line-height: 1.05;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: var(--space-24);
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            line-height: 1.15;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: var(--space-24);
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            margin-bottom: var(--space-16);
+        }
+        
+        p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin-bottom: var(--space-16);
+        }
+        
+        .eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: #9B8A7D;
+            margin-bottom: var(--space-24);
+            opacity: 0.85;
+        }
+        
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-32);
+        }
+        
+        /* NAVIGATION */
+        .navbar {
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border);
+            padding: var(--space-24) 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-32);
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            align-items: center;
+            gap: var(--space-32);
+        }
+        
+        .nav-brand {
+            font-family: var(--font-heading);
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            line-height: 1.2;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--space-32);
+            justify-content: center;
+        }
+        
+        .nav-menu a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--accent-taupe);
+        }
+        
+        .nav-cta {
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        .btn-nav {
+            background: var(--accent-taupe);
+            color: white;
+            padding: 0.625rem 1.5rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-nav:hover {
+            background: #9F8D81;
+            transform: translateY(-1px);
+        }
+        
+        .hamburger {
+            display: none;
+        }
+        
+        /* PAGE HEADER */
+        .page-header {
+            padding: var(--space-80) 0 var(--space-64);
+            text-align: center;
+            background: var(--bg-primary);
+        }
+        
+        .page-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 60ch;
+            margin: 0 auto;
+        }
+        
+        /* HIGHLIGHT BAR */
+        .highlight-bar {
+            background: var(--accent-taupe);
+            padding: var(--space-48) 0;
+        }
+        
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-48);
+            text-align: center;
+        }
+        
+        .highlight-item {
+            color: white;
+        }
+        
+        .highlight-clickable {
+            cursor: pointer;
+        }
+        
+        .highlight-link {
+            color: white;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        .highlight-link:hover {
+            transform: scale(1.05);
+            opacity: 0.95;
+        }
+        
+        .highlight-link:hover .highlight-number {
+            transform: scale(1.1);
+        }
+        
+        .highlight-number {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: var(--space-12);
+            letter-spacing: 0.02em;
+            transition: transform 0.3s ease;
+        }
+        
+        .highlight-label {
+            font-size: 0.875rem;
+            opacity: 0.9;
+            letter-spacing: 0.02em;
+            line-height: 1.4;
+        }
+        
+        .schufa-links {
+            display: flex;
+            gap: var(--space-16);
+            justify-content: center;
+            margin-top: var(--space-12);
+        }
+        
+        .schufa-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.8125rem;
+            padding: 6px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .schufa-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        /* FINANCIAL DETAILS */
+        .financial-section {
+            padding: var(--space-80) 0;
+            background: var(--bg-secondary);
+        }
+        
+        .financial-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-32);
+        }
+        
+        .financial-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: var(--space-48);
+            border-radius: var(--radius);
+            transition: all 0.3s ease;
+        }
+        
+        .financial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-soft);
+            border-color: var(--accent-taupe);
+        }
+        
+        .financial-card h3 {
+            margin-bottom: var(--space-24);
+            color: var(--accent-taupe);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .financial-list {
+            list-style: none;
+        }
+        
+        .financial-list li {
+            padding: var(--space-16) 0;
+            border-bottom: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: var(--space-24);
+            font-size: 0.9375rem;
+        }
+        
+        .financial-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .label {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .value {
+            color: var(--text-muted);
+            text-align: right;
+            font-weight: 500;
+        }
+        
+        .value.highlight {
+            color: var(--accent-taupe);
+            font-weight: 600;
+        }
+        
+        .value-links {
+            display: flex;
+            gap: var(--space-12);
+            justify-content: flex-end;
+            flex-wrap: wrap;
+        }
+        
+        .value-link {
+            color: var(--accent-taupe);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            padding: 4px 10px;
+            border: 1px solid var(--accent-taupe);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .value-link:hover {
+            background: var(--accent-taupe);
+            color: white;
+            transform: translateY(-1px);
+        }
+        
+        /* DOCUMENTS SECTION */
+        .documents-section {
+            padding: var(--space-80) 0;
+            background: var(--bg-primary);
+        }
+        
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-32);
+            margin-top: var(--space-48);
+        }
+        
+        .document-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            padding: var(--space-48);
+            border-radius: var(--radius);
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .document-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-soft);
+            border-color: var(--accent-taupe);
+        }
+        
+        .doc-icon {
+            font-size: 3rem;
+            margin-bottom: var(--space-24);
+            line-height: 1;
+        }
+        
+        .document-card h3 {
+            font-size: 1.125rem;
+            margin-bottom: var(--space-16);
+            color: var(--accent-taupe);
+        }
+        
+        .document-card p {
+            font-size: 0.875rem;
+            margin-bottom: var(--space-16);
+            color: var(--text-muted);
+        }
+        
+        .doc-buttons {
+            display: flex;
+            gap: var(--space-12);
+            justify-content: center;
+        }
+        
+        .doc-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: var(--accent-taupe);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .doc-btn:hover {
+            background: #9F8D81;
+            transform: translateY(-2px);
+        }
+        
+        /* CTA SECTION */
+        .cta-section {
+            padding: var(--space-80) 0;
+            background: var(--bg-secondary);
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            margin-bottom: var(--space-24);
+        }
+        
+        .cta-section p {
+            font-size: 1.125rem;
+            max-width: 60ch;
+            margin: 0 auto var(--space-48);
+        }
+        
+        .btn-primary {
+            background: var(--accent-taupe);
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 0.9375rem;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-taupe);
+        }
+        
+        .btn-primary:hover {
+            background: #9F8D81;
+            border-color: #9F8D81;
+            transform: translateY(-2px);
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--bg-primary);
+            padding: var(--space-80) 0 var(--space-32);
+            border-top: 1px solid var(--border);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-64);
+            margin-bottom: var(--space-64);
+        }
+        
+        .footer-section h4 {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--space-24);
+            letter-spacing: 0.02em;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section li {
+            margin-bottom: var(--space-12);
+        }
+        
+        .footer-section a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--accent-taupe);
+        }
+        
+        .footer-section p {
+            font-size: 0.9375rem;
+            margin-bottom: var(--space-12);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--space-48);
+            border-top: 1px solid var(--border);
+        }
+        
+        .footer-bottom p {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .financial-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .documents-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .highlight-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-32);
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                grid-template-columns: 1fr auto;
+            }
+            
+            .nav-brand {
+                font-size: 0.9375rem;
+                letter-spacing: 0.03em;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .nav-cta {
+                display: none;
+            }
+            
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                cursor: pointer;
+            }
+            
+            .hamburger span {
+                width: 24px;
+                height: 2px;
+                background: var(--text-primary);
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .doc-buttons {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+            }
+            
+            .financial-list li {
+                grid-template-columns: 1fr;
+                gap: var(--space-12);
+            }
+            
+            .value {
+                text-align: left;
+            }
+            
+            .value-links {
+                justify-content: flex-start;
+            }
+            
+            .schufa-links {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Michaela & Daniel Ferencz</a>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html">Über Uns</a></li>
+                <li><a href="financial.html" class="active">Finanzen</a></li>
+                <li><a href="rental-history.html">Mieterhistorie</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+            </ul>
+            
+            <div class="nav-cta">
+                <a href="contact.html#message" class="btn-nav">Nachricht Senden</a>
+            </div>
+            
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <div class="container">
+            <p class="eyebrow">Finanzielle Sicherheit</p>
+            <h1>Finanzen</h1>
+            <p class="page-subtitle">Stabile Einkommen aus unbefristeten Arbeitsverhältnissen, einwandfreie SCHUFA-Auskunft und sofort verfügbare Kaution.</p>
+        </div>
+    </section>
+
+    <!-- HIGHLIGHT BAR -->
+    <section class="highlight-bar">
+        <div class="container">
+            <div class="highlight-grid">
+                <div class="highlight-item">
+                    <div class="highlight-number">€6.000</div>
+                    <div class="highlight-label">Netto-Monatseinkommen</div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-number">100%</div>
+                    <div class="highlight-label">Einwandfreie SCHUFA</div>
+                    <div class="schufa-links">
+                        <a href="docs/SCHUFA_MICHAELA.pdf" target="_blank" class="schufa-link">
+                            <span>📄</span> Michaela
+                        </a>
+                        <a href="docs/SCHUFA_DANIEL.pdf" target="_blank" class="schufa-link">
+                            <span>📄</span> Daniel
+                        </a>
+                    </div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-number">3,3×</div>
+                    <div class="highlight-label">Einkommen-Miete-Verhältnis</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINANCIAL DETAILS -->
+    <section class="financial-section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: var(--space-64);">
+                <p class="eyebrow">Übersicht</p>
+                <h2>Finanzielle Details</h2>
+            </div>
+            
+            <div class="financial-grid">
+                <div class="financial-card">
+                    <h3>Haushalt & Einkommen</h3>
+                    <ul class="financial-list">
+                        <li>
+                            <span class="label">Haushaltstyp</span>
+                            <span class="value">Ehepaar (2 Mieter)</span>
+                        </li>
+                        <li>
+                            <span class="label">Gemeinsames Nettoeinkommen</span>
+                            <span class="value highlight">€6.000 / Monat</span>
+                        </li>
+                        <li>
+                            <span class="label">Michaela — Beruf</span>
+                            <span class="value">Kindheits- und Familienpädagogin</span>
+                        </li>
+                        <li>
+                            <span class="label">Daniel — Beruf</span>
+                            <span class="value">Bauleiter</span>
+                        </li>
+                        <li>
+                            <span class="label">Arbeitsverhältnisse</span>
+                            <span class="value highlight">Beide unbefristet</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="financial-card">
+                    <h3>Mietbudget</h3>
+                    <ul class="financial-list">
+                        <li>
+                            <span class="label">Gesuchte Wohnung</span>
+                            <span class="value">3-4 Zimmer (mit Balkon) in Hamburg</span>
+                        </li>
+                        <li>
+                            <span class="label">Wohnungsgröße</span>
+                            <span class="value">70–100 m²</span>
+                        </li>
+                        <li>
+                            <span class="label">Kaltmiete</span>
+                            <span class="value">Bis €1.300</span>
+                        </li>
+                        <li>
+                            <span class="label">Warmmiete</span>
+                            <span class="value highlight">Bis €1.800</span>
+                        </li>
+                        <li>
+                            <span class="label">Einkommen-zu-Miete-Verhältnis</span>
+                            <span class="value highlight">3,3× (stark)</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="financial-card">
+                    <h3>Bonität</h3>
+                    <ul class="financial-list">
+                        <li>
+                            <span class="label">SCHUFA-Auskunft</span>
+                            <div class="value-links">
+                                <a href="docs/SCHUFA_MICHAELA.pdf" target="_blank" class="value-link">
+                                    📄 Michaela
+                                </a>
+                                <a href="docs/SCHUFA_DANIEL.pdf" target="_blank" class="value-link">
+                                    📄 Daniel
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="label">Negativeinträge</span>
+                            <span class="value highlight">Keine</span>
+                        </li>
+                        <li>
+                            <span class="label">Zahlungshistorie</span>
+                            <span class="value">Immer pünktlich</span>
+                        </li>
+                        <li>
+                            <span class="label">Bestehende Schulden</span>
+                            <span class="value">Keine</span>
+                        </li>
+                        <li>
+                            <span class="label">Kreditwürdigkeit</span>
+                            <span class="value">Ausgezeichnet</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="financial-card">
+                    <h3>Kaution & Sicherheiten</h3>
+                    <ul class="financial-list">
+                        <li>
+                            <span class="label">Kaution</span>
+                            <span class="value highlight">Sofort verfügbar</span>
+                        </li>
+                        <li>
+                            <span class="label">Kautionshöhe</span>
+                            <span class="value">3 Monatsmieten</span>
+                        </li>
+                        <li>
+                            <span class="label">Erste Mietzahlung</span>
+                            <span class="value">Sofort zahlbereit</span>
+                        </li>
+                        <li>
+                            <span class="label">Zahlungsmethode</span>
+                            <span class="value">SEPA-Lastschrift bevorzugt</span>
+                        </li>
+                        <li>
+                            <span class="label">Privathaftpflicht</span>
+                            <span class="value">Vorhanden</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOCUMENTS -->
+    <section class="documents-section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: var(--space-48);">
+                <p class="eyebrow">Auf Anfrage</p>
+                <h2>Verfügbare Dokumente</h2>
+            </div>
+            
+            <div class="documents-grid">
+                <div class="document-card">
+                    <div class="doc-icon">📄</div>
+                    <h3>SCHUFA-Auskunft</h3>
+                    <p>Aktuelle Bonitätsauskunft ohne Negativeinträge</p>
+                    <div class="doc-buttons">
+                        <a href="docs/SCHUFA_MICHAELA.pdf" target="_blank" class="doc-btn">
+                            📄 Michaela
+                        </a>
+                        <a href="docs/SCHUFA_DANIEL.pdf" target="_blank" class="doc-btn">
+                            📄 Daniel
+                        </a>
+                    </div>
+                </div>
+                <div class="document-card">
+                    <div class="doc-icon">💶</div>
+                    <h3>Gehaltsnachweise</h3>
+                    <p>Letzte 3 Monate beider Mieter</p>
+                </div>
+                <div class="document-card">
+                    <div class="doc-icon">💼</div>
+                    <h3>Arbeitgeberbescheinigungen</h3>
+                    <p>Bestätigung unbefristeter Verträge</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Dokumente Anfordern</h2>
+            <p>Alle Unterlagen sind aktuell und können kurzfristig bereitgestellt werden.</p>
+            <a href="contact.html" class="btn-primary">Kontakt Aufnehmen</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Schnelllinks</h4>
+                    <ul>
+                        <li><a href="index.html">Über Uns</a></li>
+                        <li><a href="financial.html">Finanzen</a></li>
+                        <li><a href="rental-history.html">Mieterhistorie</a></li>
+                        <li><a href="contact.html">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <p>E-Mail: michaeladanielferencz@gmail.com</p>
+                    <p>Telefon: +49 15775830547</p>
+                    <p>WhatsApp: +49 15775830547</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Wir Suchen</h4>
+                    <p>70–100 m², 3-4 Zimmer</p>
+                    <p>Schnelsen und Umgebung</p>
+                    <p>Einzug: Ab April oder Mai 2026</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2026 Michaela & Daniel Ferencz · Alle Datenverarbeitungen entsprechen der DSGVO</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+            });
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+

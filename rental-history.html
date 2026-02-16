@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mieterhistorie — Michaela & Daniel Ferencz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #F5EDE8;
+            --bg-secondary: #EFE5DD;
+            --accent-taupe: #B6A396;
+            --text-primary: #232323;
+            --text-muted: #6F6A66;
+            --border: rgba(35, 35, 35, 0.12);
+            --white: #FFFFFF;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-24: 24px;
+            --space-32: 32px;
+            --space-48: 48px;
+            --space-64: 64px;
+            --space-72: 72px;
+            --space-80: 80px;
+            --radius: 14px;
+            --radius-sm: 8px;
+            --max-width: 1120px;
+            --shadow-soft: 0 4px 16px rgba(35, 35, 35, 0.06);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        h1 {
+            font-size: 3.25rem;
+            line-height: 1.05;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: var(--space-24);
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            line-height: 1.15;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: var(--space-24);
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            margin-bottom: var(--space-16);
+        }
+        
+        p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin-bottom: var(--space-16);
+        }
+        
+        .eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: #9B8A7D;
+            margin-bottom: var(--space-24);
+            opacity: 0.85;
+        }
+        
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-32);
+        }
+        
+        /* NAVIGATION */
+        .navbar {
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border);
+            padding: var(--space-24) 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-32);
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            align-items: center;
+            gap: var(--space-32);
+        }
+        
+        .nav-brand {
+            font-family: var(--font-heading);
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            line-height: 1.2;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--space-32);
+            justify-content: center;
+        }
+        
+        .nav-menu a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--accent-taupe);
+        }
+        
+        .nav-cta {
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        .btn-nav {
+            background: var(--accent-taupe);
+            color: white;
+            padding: 0.625rem 1.5rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-nav:hover {
+            background: #9F8D81;
+            transform: translateY(-1px);
+        }
+        
+        .hamburger {
+            display: none;
+        }
+        
+        /* PAGE HEADER */
+        .page-header {
+            padding: var(--space-80) 0 var(--space-64);
+            text-align: center;
+            background: var(--bg-primary);
+        }
+        
+        .page-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 60ch;
+            margin: 0 auto;
+        }
+        
+        /* TRACK RECORD SUMMARY */
+        .summary-bar {
+            background: var(--accent-taupe);
+            padding: var(--space-48) 0;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-48);
+            text-align: center;
+        }
+        
+        .summary-item {
+            color: white;
+        }
+        
+        .summary-number {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: var(--space-12);
+            letter-spacing: 0.02em;
+        }
+        
+        .summary-label {
+            font-size: 0.875rem;
+            opacity: 0.9;
+            letter-spacing: 0.02em;
+            line-height: 1.4;
+        }
+        
+        /* CURRENT RESIDENCE */
+        .residence-section {
+            padding: var(--space-80) 0;
+            background: var(--bg-secondary);
+        }
+        
+        .residence-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: var(--space-48);
+            border-radius: var(--radius);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .residence-header {
+            text-align: center;
+            margin-bottom: var(--space-48);
+        }
+        
+        .residence-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-12);
+            color: var(--accent-taupe);
+        }
+        
+        .residence-header .location {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        
+        .residence-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-32);
+            margin-bottom: var(--space-32);
+        }
+        
+        .detail-group h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent-taupe);
+            margin-bottom: var(--space-16);
+        }
+        
+        .detail-list {
+            list-style: none;
+        }
+        
+        .detail-list li {
+            padding: var(--space-12) 0;
+            border-bottom: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: var(--space-16);
+            font-size: 0.9375rem;
+        }
+        
+        .detail-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .label {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .value {
+            color: var(--text-muted);
+        }
+        
+        /* CTA SECTION */
+        .cta-section {
+            padding: var(--space-80) 0;
+            background: var(--bg-primary);
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            margin-bottom: var(--space-24);
+        }
+        
+        .cta-section p {
+            font-size: 1.125rem;
+            max-width: 60ch;
+            margin: 0 auto var(--space-48);
+        }
+        
+        .btn-primary {
+            background: var(--accent-taupe);
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 0.9375rem;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-taupe);
+        }
+        
+        .btn-primary:hover {
+            background: #9F8D81;
+            border-color: #9F8D81;
+            transform: translateY(-2px);
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--bg-secondary);
+            padding: var(--space-80) 0 var(--space-32);
+            border-top: 1px solid var(--border);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-64);
+            margin-bottom: var(--space-64);
+        }
+        
+        .footer-section h4 {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--space-24);
+            letter-spacing: 0.02em;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section li {
+            margin-bottom: var(--space-12);
+        }
+        
+        .footer-section a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--accent-taupe);
+        }
+        
+        .footer-section p {
+            font-size: 0.9375rem;
+            margin-bottom: var(--space-12);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--space-48);
+            border-top: 1px solid var(--border);
+        }
+        
+        .footer-bottom p {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .summary-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .residence-details {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                grid-template-columns: 1fr auto;
+            }
+            
+            .nav-brand {
+                font-size: 0.9375rem;
+                letter-spacing: 0.03em;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .nav-cta {
+                display: none;
+            }
+            
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                cursor: pointer;
+            }
+            
+            .hamburger span {
+                width: 24px;
+                height: 2px;
+                background: var(--text-primary);
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .summary-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-32);
+            }
+            
+            .detail-list li {
+                grid-template-columns: 1fr;
+                gap: var(--space-12);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Michaela & Daniel Ferencz</a>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html">Über Uns</a></li>
+                <li><a href="financial.html">Finanzen</a></li>
+                <li><a href="rental-history.html" class="active">Mieterhistorie</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+            </ul>
+            
+            <div class="nav-cta">
+                <a href="contact.html#message" class="btn-nav">Nachricht Senden</a>
+            </div>
+            
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <div class="container">
+            <p class="eyebrow">Zuverlässige Mieterhistorie</p>
+            <h1>Mieterhistorie</h1>
+            <p class="page-subtitle">Perfekte Zahlungshistorie, ausgezeichnete Referenzen und nachgewiesenes Engagement für verantwortungsvolles Mieten.</p>
+        </div>
+    </section>
+
+    <!-- TRACK RECORD SUMMARY -->
+    <section class="summary-bar">
+        <div class="container">
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <div class="summary-number">20+</div>
+                    <div class="summary-label">Jahre Miethistorie</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-number">100%</div>
+                    <div class="summary-label">Pünktliche Zahlungen</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-number">0</div>
+                    <div class="summary-label">Beschwerden</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-number">0</div>
+                    <div class="summary-label">Mietschulden</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CURRENT RESIDENCE -->
+    <section class="residence-section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: var(--space-64);">
+                <p class="eyebrow">Aktueller Wohnsitz</p>
+                <h2>Aktuelle Wohnung</h2>
+            </div>
+            
+            <div class="residence-card">
+                <div class="residence-header">
+                    <h3>4-Zimmer-Wohnung (120 m²)</h3>
+                    <p class="location">Mülheim an der Ruhr · Seit 2006</p>
+                </div>
+                
+                <div class="residence-details">
+                    <div class="detail-group">
+                        <h4>Mietdetails</h4>
+                        <ul class="detail-list">
+                            <li>
+                                <span class="label">Mietdauer</span>
+                                <span class="value">20+ Jahre</span>
+                            </li>
+                            <li>
+                                <span class="label">Wohnungsgröße</span>
+                                <span class="value">120 m², 4 Zimmer</span>
+                            </li>
+                            <li>
+                                <span class="label">Vertragsart</span>
+                                <span class="value">Standardmietvertrag</span>
+                            </li>
+                            <li>
+                                <span class="label">Umzugsgrund</span>
+                                <span class="value">Nähe zu unseren Kindern</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="detail-group">
+                        <h4>Mietverhalten</h4>
+                        <ul class="detail-list">
+                            <li>
+                                <span class="label">Zahlungshistorie</span>
+                                <span class="value">100% pünktlich</span>
+                            </li>
+                            <li>
+                                <span class="label">Wohnungszustand</span>
+                                <span class="value">Ausgezeichnete Pflege</span>
+                            </li>
+                            <li>
+                                <span class="label">Nachbarschaft</span>
+                                <span class="value">Keine Beschwerden</span>
+                            </li>
+                            <li>
+                                <span class="label">Kommunikation</span>
+                                <span class="value">Zuverlässig & professionell</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div style="background: var(--bg-primary); padding: var(--space-24); border-radius: var(--radius-sm); margin-top: var(--space-32);">
+                    <p style="margin: 0; font-size: 0.9375rem; line-height: 1.7;">
+                        <strong style="color: var(--text-primary);">Vermieterbescheinigung:</strong> Auf Anfrage verfügbar. Unser aktueller Vermieter kann direkt kontaktiert werden und bestätigt eine einwandfreie Miethistorie ohne Mietschulden.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Vermieterreferenzen Verfügbar</h2>
+            <p>Unser Vermieter ist gerne bereit, direkt über seine Erfahrungen mit uns zu sprechen. Kontaktieren Sie uns für Referenzen.</p>
+            <a href="contact.html" class="btn-primary">Kontakt Aufnehmen</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Schnelllinks</h4>
+                    <ul>
+                        <li><a href="index.html">Über Uns</a></li>
+                        <li><a href="financial.html">Finanzen</a></li>
+                        <li><a href="rental-history.html">Mieterhistorie</a></li>
+                        <li><a href="contact.html">Kontakt</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <p>E-Mail: michaeladanielferencz@gmail.com</p>
+                    <p>Telefon: +49 15775830547</p>
+                    <p>WhatsApp: +49 15775830547</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Wir Suchen</h4>
+                    <p>70–100 m², 3-4 Zimmer</p>
+                    <p>Schnelsen und Umgebung</p>
+                    <p>Einzug: Ab April oder Mai 2026</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2026 Michaela & Daniel Ferencz · Alle Datenverarbeitungen entsprechen der DSGVO</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+            });
+        }
+    </script>
+
+</body>
+</html>
+
+
+
